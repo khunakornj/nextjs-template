@@ -1,0 +1,21 @@
+/* src/styles/theme.css */
+@theme {
+  /* example */
+  /* --color-ds-gray950: #2a2a2a; */
+  /* --spacing-ds100: 8px; */
+  /* --radius-ds00: 0px */
+}
+
+@media (prefers-color-scheme: dark) {
+  @theme {
+    /* schematic theming */
+    /* --color-card-border: var(--color-ds-gray950); */
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  @theme {
+    /* schematic theming */
+    /* --color-card-border: var(--color-ds-gray950); */
+  }
+}
