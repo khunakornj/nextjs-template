@@ -1,4 +1,5 @@
 import '../styles/base.css';
+import { SERVER_ENV } from '@/shared/libs/env.server';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 
@@ -22,6 +23,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // so that it break when env not present
+  SERVER_ENV;
+
   return (
     <html lang="en">
       <body

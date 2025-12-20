@@ -1,0 +1,13 @@
+{
+  "typescript.preferences.autoImportFileExcludePatterns": [
+    "**/dayjs/**",
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "explicit"
+  },
+  "tailwindCSS.classFunctions": [
+    "cva",
+    "cn"
+  ]
+}
