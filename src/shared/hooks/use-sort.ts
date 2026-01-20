@@ -1,6 +1,7 @@
-import { SortDirection } from '@/shared/common/types';
 import { useState } from 'react';
 import { match } from 'ts-pattern';
+
+import { SortDirection } from '@/shared/common/types';
 
 function getNextSort(dir: SortDirection): SortDirection {
   return match<SortDirection, SortDirection>(dir)

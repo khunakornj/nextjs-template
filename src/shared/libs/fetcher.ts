@@ -1,5 +1,6 @@
-import { CLIENT_ENV } from './env.client';
 import qs from 'qs';
+
+import { CLIENT_ENV } from './env.client';
 
 type Method = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
 

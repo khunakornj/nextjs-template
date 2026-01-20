@@ -47,10 +47,11 @@ export default defineConfig([
 
       // --- React Rules ---
       'no-trailing-spaces': 'error',
+      '@typescript-eslint/no-explicit-any': 'off',
       'no-restricted-imports': [
         'error',
         {
-          patterns: ['../*', '../../*'],
+          patterns: ['../../*'],
         },
       ],
       'no-multiple-empty-lines': [
@@ -61,7 +62,6 @@ export default defineConfig([
           maxBOF: 0, // No empty lines at the beginning of the file
         },
       ],
-      'react-refresh/only-export-components': 'off',
       '@typescript-eslint/no-unused-vars': [
         'error',
         {
