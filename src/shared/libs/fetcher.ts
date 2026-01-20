@@ -27,7 +27,7 @@ export function fetcher<T extends object>(
   options: FetcherWriteOptions<T>,
 ): Promise<Response>;
 
-export function fetcher(path: string, method: Method, options: any = {}) {
+export async function fetcher(path: string, method: Method, options: any = {}) {
   const { params, body, headers, version } =
     options as FetcherWriteOptions<any>;
 
@@ -64,4 +64,13 @@ export function fetcher(path: string, method: Method, options: any = {}) {
   }
 
   return fetch(url, init);
+}
+
+export async function validateAndGetApiData<T>(res: Response) {
+  if (res.status > 299 || res.status < 200) {
+    throw new Error(await res.json());
+  }
+
+  const data: T = await res.json();
+  return data;
 }
