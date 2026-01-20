@@ -2,6 +2,7 @@
   "recommendations": [
     "YoavBls.pretty-ts-errors",
     "esbenp.prettier-vscode",
-    "bradlc.vscode-tailwindcss"
+    "vunguyentuan.vscode-css-variables",
+    "stylelint.vscode-stylelint"
   ]
 }

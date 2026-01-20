@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES2017",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -20,22 +16,24 @@
     "plugins": [
       {
         "name": "next"
+      },
+      {
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "classnameTransform": "camelCaseOnly",
+          "customMatcher": "\\.module\\.(css|scss|less)$",
+          "additionalData": "@use 'inject' as *;",
+          "rendererOptions": {
+            "sass": {
+              "loadPaths": ["src/styles/foundation"]
+            }
+          }
+        }
       }
     ],
     "baseUrl": "src/",
     "paths": {
-      "@/*": [
-        "./*"
-      ],
-      "@/shared/*": [
-        "shared/*"
-      ],
-      "@/features/*": [
-        "features/*"
-      ],
-      "@/public/*": [
-        "public/*"
-      ],
+      "@/*": ["./*"]
     }
   },
   "include": [
@@ -46,7 +44,5 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }

@@ -3,7 +3,9 @@ import tsParser from '@typescript-eslint/parser';
 import nextVitals from 'eslint-config-next/core-web-vitals';
 import nextTs from 'eslint-config-next/typescript';
 import prettierPlugin from 'eslint-plugin-prettier';
+import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import typescriptEnumPlugin from 'eslint-plugin-typescript-enum';
+import ununsedImport from 'eslint-plugin-unused-imports';
 import { defineConfig, globalIgnores } from 'eslint/config';
 
 export default defineConfig([
@@ -29,49 +31,39 @@ export default defineConfig([
       '@typescript-eslint': tsPlugin,
       prettier: prettierPlugin,
       'typescript-enum': typescriptEnumPlugin,
+      'simple-import-sort': simpleImportSort,
+      'unused-imports': ununsedImport,
     },
     rules: {
-      // Prettier
-      'prettier/prettier': 'error',
+      // --- Plugins Rules ---
+      'simple-import-sort/imports': 'error',
+      'simple-import-sort/exports': 'error',
+      'prettier/prettier': ['error'],
+      'unused-imports/no-unused-imports': 'error',
 
-      // Arrays & types
-      '@typescript-eslint/array-type': ['error', { default: 'array-simple' }],
-      '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
-      '@typescript-eslint/consistent-type-imports': [
+      // --- React Rules ---
+      'no-trailing-spaces': 'error',
+      'no-restricted-imports': [
         'error',
-        { prefer: 'type-imports' },
+        {
+          patterns: ['../*', '../../*'],
+        },
       ],
-
-      // Relaxed rules
-      '@typescript-eslint/interface-name-prefix': 'off',
-      '@typescript-eslint/explicit-function-return-type': 'off',
-      '@typescript-eslint/explicit-module-boundary-types': 'off',
-      '@typescript-eslint/no-explicit-any': 'off',
-
-      // Unused vars
+      'no-multiple-empty-lines': [
+        'error',
+        {
+          max: 1, // Maximum 1 empty line between code blocks
+          maxEOF: 0, // No empty lines at the end of the file
+          maxBOF: 0, // No empty lines at the beginning of the file
+        },
+      ],
+      'react-refresh/only-export-components': 'off',
       '@typescript-eslint/no-unused-vars': [
         'error',
         {
           ignoreRestSiblings: true,
           varsIgnorePattern: '^_',
           argsIgnorePattern: '^_',
-        },
-      ],
-
-      // Naming conventions
-      '@typescript-eslint/naming-convention': [
-        'error',
-        {
-          selector: 'method',
-          modifiers: ['private'],
-          format: ['camelCase'],
-          leadingUnderscore: 'require',
-        },
-        {
-          selector: 'classProperty',
-          modifiers: ['private'],
-          format: ['camelCase'],
-          leadingUnderscore: 'require',
         },
       ],
     },
