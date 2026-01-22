@@ -1,7 +1,5 @@
 {
-  "typescript.preferences.autoImportFileExcludePatterns": [
-    "**/dayjs/**",
-  ],
+  "typescript.preferences.autoImportFileExcludePatterns": ["**/dayjs/**"],
   "css.validate": false,
   "scss.validate": false,
   "stylelint.validate": ["css", "scss"],
@@ -18,7 +16,7 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
     "source.fixAll.stylelint": "explicit",
-    "source.organizeImports": "never",
+    "source.organizeImports": "never"
   },
   "eslint.format.enable": true,
   "typescript.tsdk": "node_modules/typescript/lib",
@@ -26,26 +24,26 @@
 
   "[typescript]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-    "editor.formatOnSave": false 
+    "editor.formatOnSave": false
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-    "editor.formatOnSave": false 
+    "editor.formatOnSave": false
   },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true 
+    "editor.formatOnSave": true
   },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true 
+    "editor.formatOnSave": true
   },
   "[css]": {
-    "editor.defaultFormatter": null, 
-    "editor.formatOnSave": false 
+    "editor.defaultFormatter": null,
+    "editor.formatOnSave": false
   },
   "[postcss]": {
     "editor.defaultFormatter": null,
     "editor.formatOnSave": false
-  },
+  }
 }

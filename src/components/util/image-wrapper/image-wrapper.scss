@@ -1,8 +1,8 @@
-.wrapper {
+.Image-wrapper__root {
   cursor: inherit;
 }
 
-.image {
+.Image-wrapper__root__image {
   --aspect-ratio: 1;
 
   position: relative;

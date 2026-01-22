@@ -1,9 +1,9 @@
-import style from './landing-page.module.scss';
+import './landing-page.scss';
 
 function LandingPage() {
   return (
-    <div className="">
-      <h1 className={style.root}>bobbyyy</h1>
+    <div className="Home__root">
+      <h1 className="Home__root__h1">test</h1>
     </div>
   );
 }

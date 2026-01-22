@@ -1,8 +1,8 @@
+import './image-wrapper.scss';
+
 import clsx from 'clsx';
 import Image from 'next/image';
 import React, { forwardRef } from 'react';
-
-import styles from './image.module.scss';
 
 type Props = {
   src: string;
@@ -24,12 +24,16 @@ const ImageWrapper = forwardRef(
     }: Props,
     ref: React.ForwardedRef<HTMLDivElement>,
   ) => (
-    <div className={clsx(styles.wrapper, className)} ref={ref} {...props}>
+    <div
+      className={clsx('Image-wrapper__root', className)}
+      ref={ref}
+      {...props}
+    >
       <Image
         src={src}
         alt={alt}
         fill
-        className={clsx(styles.image)}
+        className="Image-wrapper__root__image"
         draggable={false}
         style={
           { objectFit, '--aspect-ratio': aspectRatio } as React.CSSProperties

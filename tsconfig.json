@@ -16,18 +16,6 @@
     "plugins": [
       {
         "name": "next"
-      },
-      {
-        "name": "typescript-plugin-css-modules",
-        "options": {
-          "customMatcher": "\\.module\\.(css|scss|less)$",
-          "additionalData": "@use 'inject' as *;",
-          "rendererOptions": {
-            "sass": {
-              "loadPaths": ["src/styles/foundation"]
-            }
-          }
-        }
       }
     ],
     "baseUrl": "src/",

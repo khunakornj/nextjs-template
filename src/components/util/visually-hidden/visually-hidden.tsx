@@ -1,6 +1,6 @@
-import { forwardRef } from 'react';
+import './visually-hidden.scss';
 
-import styles from './VisuallyHidden.module.scss';
+import { forwardRef } from 'react';
 
 type Props = React.ComponentProps<'span'>;
 
@@ -9,7 +9,7 @@ type Props = React.ComponentProps<'span'>;
  * Used for labeling icons, providing instructions, or hidden form elements.
  */
 const VisuallyHidden = forwardRef<HTMLSpanElement, Props>((props, ref) => {
-  return <span {...props} ref={ref} className={styles.visuallyHidden} />;
+  return <span {...props} ref={ref} className="VisuallyHidden__span" />;
 });
 
 VisuallyHidden.displayName = 'VisuallyHidden';

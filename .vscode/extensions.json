@@ -3,6 +3,7 @@
     "YoavBls.pretty-ts-errors",
     "esbenp.prettier-vscode",
     "vunguyentuan.vscode-css-variables",
-    "stylelint.vscode-stylelint"
+    "stylelint.vscode-stylelint",
+    "Syler.sass-indented"
   ]
 }

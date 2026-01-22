@@ -1,7 +1,7 @@
+import './progress-bar.scss';
+
 import { Progress } from '@ark-ui/react/progress';
 import clsx from 'clsx';
-
-import style from './progress-bar.module.scss';
 
 type Props = {
   className?: string;
@@ -21,11 +21,11 @@ function ProgressBar({
     <Progress.Root
       max={maxValue}
       value={value}
-      className={clsx(style.root, className)}
+      className={clsx('Progress-bar__root', className)}
       {...props}
     >
-      <Progress.Track className={style.track}>
-        <Progress.Range className={style.trackIndicator} />
+      <Progress.Track className="Progress-bar__root__track">
+        <Progress.Range className="Progress-bar__root__track__range" />
       </Progress.Track>
     </Progress.Root>
   );
