@@ -1,5 +1,6 @@
-import HomePage from '@/features/home/home-page';
+import { redirect } from 'next/navigation';
 
-export default function Home() {
-  return <HomePage />;
+export default function RootPage() {
+  // You can logic-check cookies or headers here
+  redirect('/en');
 }
