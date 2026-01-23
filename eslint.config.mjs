@@ -18,7 +18,13 @@ export default defineConfig([
   ...storybook.configs['flat/recommended'],
 
   // Project ignores
-  globalIgnores(['.next/**', 'out/**', 'build/**', 'next-env.d.ts']),
+  globalIgnores([
+    '.next/**',
+    'out/**',
+    'build/**',
+    'next-env.d.ts',
+    'src/i18n/*.ts',
+  ]),
 
   // TypeScript rules
   {
