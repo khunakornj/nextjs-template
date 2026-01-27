@@ -2,10 +2,10 @@
 
 import './home-page.scss';
 
-import { useLang } from '@/shared/hooks/use-lang';
+import { useLocale } from '@/shared/hooks/use-locale';
 
 function HomePage() {
-  const t = useLang();
+  const t = useLocale();
 
   return (
     <div className="Home__root">

@@ -24,3 +24,7 @@ export function proxy(request: NextRequest) {
   }
   // ========= Ensure Locale =========
 }
+
+export const config = {
+  matcher: '/:path*',
+};
