@@ -1,8 +1,9 @@
 import qs from 'qs';
 
+import { StandardApiErrorResponse } from '../common/types';
 import { CLIENT_ENV } from './env.client';
 
-type Method = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
+export type Method = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
 
 type FetcherBaseOptions = {
   params?: Record<string, any>;
@@ -66,11 +67,24 @@ export async function fetcher(path: string, method: Method, options: any = {}) {
   return fetch(url, init);
 }
 
-export async function validateAndGetApiData<T>(res: Response) {
+export async function validateAndGetApiData<T, E>(
+  res: Response,
+): Promise<T | StandardApiErrorResponse<E>> {
+  const data = await res.json();
+
   if (res.status > 299 || res.status < 200) {
-    throw new Error(await res.json());
+    return data as StandardApiErrorResponse<E>;
   }
 
-  const data: T = await res.json();
-  return data;
+  return data as T;
+}
+
+export async function getOrThrowApiData<T>(res: Response): Promise<T> {
+  const data = await res.json();
+
+  if (res.status > 299 || res.status < 200) {
+    throw new Error(data.key);
+  }
+
+  return data as T;
 }

@@ -1,0 +1,31 @@
+@mixin animate-blink {
+  @keyframes blink-2 {
+    0% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.2;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  animation: blink-2 0.9s infinite both;
+}
+
+@mixin animate-rotate-center {
+  @keyframes rotate-center {
+    0% {
+      transform: rotate(0);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  animation: rotate-center 0.5s linear infinite;
+}
