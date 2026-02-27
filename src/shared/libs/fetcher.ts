@@ -5,13 +5,13 @@ import { CLIENT_ENV } from './env.client';
 
 export type Method = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
 
-type FetcherBaseOptions = {
+export type FetcherBaseOptions = {
   params?: Record<string, any>;
   headers?: Record<string, string>;
   version?: number;
 };
 
-type FetcherWriteOptions<T extends object> = FetcherBaseOptions & {
+export type FetcherWriteOptions<T extends object> = FetcherBaseOptions & {
   body: T;
 };
 

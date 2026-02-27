@@ -3,9 +3,28 @@ import { redirect } from 'next/navigation';
 import { ApiResponse } from '../api/auth/refresh/refresh.api.type';
 import { useAuth } from '../hooks/use-auth';
 import { useDeviceUid } from '../hooks/use-device-uid';
-import { fetcher, Method } from './fetcher';
+import {
+  fetcher,
+  FetcherBaseOptions,
+  FetcherWriteOptions,
+  Method,
+} from './fetcher';
 
 export type UseClientFetchReturn = ReturnType<typeof useClientFetch>;
+
+type ClientFetch = {
+  (
+    path: string,
+    method: 'GET' | 'DELETE',
+    options?: FetcherBaseOptions,
+  ): Promise<Response>;
+
+  <T extends object>(
+    path: string,
+    method: 'POST' | 'PUT' | 'PATCH',
+    options: FetcherWriteOptions<T>,
+  ): Promise<Response>;
+};
 
 // prevent double fetch
 let clientSideRefreshPromise: Promise<string | null> | null = null;
@@ -14,11 +33,11 @@ export function useClientFetch() {
   const { authToken, setToken, removeSession } = useAuth();
   const deviceUid = useDeviceUid();
 
-  async function clientFetch(
+  const clientFetch: ClientFetch = async (
     path: string,
     method: Method,
     options: any = {},
-  ): Promise<Response> {
+  ): Promise<Response> => {
     const executeFetch = async (token: string | null) => {
       const headers = { ...options.headers };
       if (token) headers['authorization'] = `Bearer ${token}`;
@@ -58,7 +77,7 @@ export function useClientFetch() {
     }
 
     return res;
-  }
+  };
 
   return clientFetch;
 }

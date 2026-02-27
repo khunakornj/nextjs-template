@@ -12,7 +12,6 @@ export function useAuth() {
 
   const authToken = cookies[AUTH_COOKIE];
 
-  // BE SET THIS
   const removeSession = () => removeCookie(AUTH_COOKIE);
 
   return {
